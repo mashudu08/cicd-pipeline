@@ -7,7 +7,7 @@ pipeline {
             steps {
                 // Build the Spring Boot application using Maven
                 script {
-                    sh "mvn clean install"
+                    sh "mvnw clean install"
                 }
             }
         }
