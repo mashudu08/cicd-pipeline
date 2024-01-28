@@ -5,7 +5,7 @@ pipeline {
         stage('Build and Package') {
             steps {
                 script {
-                    sh './mvnw clean package'
+                    sh './build.sh'
                 }
             }
         }
