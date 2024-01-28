@@ -2,10 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Build and Package') {
+        
+            stage('Build') {
             steps {
+                // Build the Spring Boot application using Maven
                 script {
-                    sh './build.sh'
+                    sh "mvn clean install"
                 }
             }
         }
@@ -19,13 +21,13 @@ pipeline {
             }
         }
 
-        stage('Cleanup') {
-            steps {
-                script {
-                    sh 'pkill -f "java -jar"'
-                }
-            }
-        }
+        // stage('Cleanup') {
+        //     steps {
+        //         script {
+        //             sh 'pkill -f "java -jar"'
+        //         }
+        //     }
+        // }
     }
 
 }
