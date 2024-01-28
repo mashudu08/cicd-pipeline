@@ -12,7 +12,7 @@ pipeline {
             }
         }
 
-        stage('Run the Spring Boot App') {
+        stage('Run') {
             steps {
                 script {
                     sh 'java -jar target/Spring-Boot-Web-App.jar &'
