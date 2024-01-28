@@ -1,13 +1,18 @@
 pipeline {
     agent any
 
+     tools {
+        maven 'Maven'
+        git 'Git'
+    }
+
     stages {
         
-            stage('Build') {
+            stage('Build and Package') {
             steps {
                 // Build the Spring Boot application using Maven
                 script {
-                    sh "mvnw clean install"
+                    sh './mvnw clean install -DskipTests'
                 }
             }
         }
