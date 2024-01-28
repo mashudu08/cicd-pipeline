@@ -1,39 +1,21 @@
 pipeline {
     agent any
 
-     tools {
-        maven 'Maven 3'
-        git 'Git'
-    }
-
     stages {
-        
-            stage('Build and Package') {
+        stage('Build') {
             steps {
-                // Build the Spring Boot application using Maven
-                script {
-                    sh './mvnw clean install -DskipTests'
-                }
+                echo 'Building..'
             }
         }
-
-        stage('Run') {
+        stage('Test') {
             steps {
-                script {
-                    sh 'java -jar target/Spring-Boot-Web-App.jar &'
-                    sleep 10
-                }
+                echo 'Testing..'
             }
         }
-
-        // stage('Cleanup') {
-        //     steps {
-        //         script {
-        //             sh 'pkill -f "java -jar"'
-        //         }
-        //     }
-        // }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
     }
-
 }
-
